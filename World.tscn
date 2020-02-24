@@ -1,19 +1,63 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/World.gd" type="Script" id=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+flag_disable_z = true
+spread = 20.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 2.0
+angular_velocity = -612.41
+orbit_velocity = 52.0
+orbit_velocity_random = 0.0
+scale = 25.0
+color = Color( 0.254902, 0.215686, 0.431373, 1 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 2
+emission_box_extents = Vector3( 5, 3, 1 )
+flag_disable_z = true
+spread = 52.24
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 32.41
+angle = 75.0
+angle_random = 1.0
+scale = 12.49
+color = Color( 0.0901961, 0.72549, 0.0745098, 1 )
+hue_variation = 0.31
+hue_variation_random = 0.94
+anim_speed_random = 0.85
+
+[sub_resource type="ParticlesMaterial" id=3]
+lifetime_randomness = 0.71
+trail_divisor = 5
+emission_shape = 4
+emission_point_count = 1
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+tangential_accel = 9.19
+angle = -264.8
+color = Color( 0.815686, 0.0980392, 0.184314, 1 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Particles1" type="Particles2D" parent="."]
 position = Vector2( 128, 256 )
+process_material = SubResource( 1 )
 
 [node name="Particles2" type="Particles2D" parent="."]
 position = Vector2( 512, 256 )
+process_material = SubResource( 2 )
 
 [node name="Particles3" type="Particles2D" parent="."]
 position = Vector2( 896, 256 )
+process_material = SubResource( 3 )
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( 512, 304 )

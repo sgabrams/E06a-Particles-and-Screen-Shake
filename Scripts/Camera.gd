@@ -1,7 +1,7 @@
 extends Camera2D
 
 export var decay_rate = 0.4
-export var max_offset = 20
+export var max_offset = 20 
  
 var _start_position
 var _start_rotation
@@ -21,7 +21,7 @@ func _process(delta):
 	   
 func _decay_trauma(delta):
 	var change = decay_rate * delta
-	_trauma = max(_trauma - change, 0)
+	_trauma = max(_trauma - change, 1)
  
 func _apply_shake():
 	var shake = _trauma * _trauma
@@ -31,3 +31,4 @@ func _apply_shake():
  
 func _get_neg_or_pos_scalar():
 	return rand_range(-1.0, 1.0)
+© 2020 GitHub, Inc.
